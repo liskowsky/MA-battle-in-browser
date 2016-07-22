@@ -18,5 +18,9 @@ describe Game do
     it "accepts player_2" do
       expect(game.player_2).to eq player_2
     end
+    it "trun starts with Player 1" do
+      expect(game.turn).to eq 1
+    end
   end
+
 end

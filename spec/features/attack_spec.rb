@@ -10,4 +10,12 @@ feature 'Attack' do
     click_button("Resume combat!")
     expect(page).to have_content "Jonny HP:90"
   end
+  scenario "attack reduces player 1's HP" do
+    sign_in_and_play
+    click_button("Attack!")
+    click_button("Resume combat!")
+    click_button("Attack!")
+    expect(page).to have_content "Jonny annihilates Richard!"
+  end
+
 end
