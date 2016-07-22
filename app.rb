@@ -3,7 +3,6 @@ require './lib/player.rb'
 require './lib/game.rb'
 
 class Battle < Sinatra::Base
-  #enable :sessions
 
   get '/' do
     erb(:index)
@@ -23,13 +22,11 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     @game = $game
-    if @game.turn == 1
-      @game.attack(@game.player_2)
-      @game.turn = 2
+    if @game.p1_turn?
+      @game.p1_attack
       erb(:attack_p2)
     else
-      @game.attack(@game.player_1)
-      @game.turn = 1
+      @game.p2_attack
       erb(:attack_p1)
     end
   end

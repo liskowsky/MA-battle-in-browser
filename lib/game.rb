@@ -15,4 +15,17 @@ class Game
     player.receive_damage
   end
 
+  def p1_turn?
+    @turn == 1
+  end
+
+  def p1_attack
+    attack(@player_2)
+    @turn = 2
+  end
+
+  def p2_attack
+    attack(@player_1)
+    @turn = 1
+  end
 end
